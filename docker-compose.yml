@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 volumes:
   questdb_data: {}
@@ -14,8 +14,6 @@ services:
     restart: always
     volumes:
       - .:/app
-    env_file:
-      - .env
     ports:
       - 8000:8000
     command: /app/scripts/start.sh
@@ -28,20 +26,17 @@ services:
       - redis
     volumes:
       - .:/app
-    env_file:
-      - .env
     command: /app/scripts/start_worker.sh
 
   redis:
-    image: 'redis:latest'
+    image: "redis:latest"
     ports:
-      - '6379:6379'
+      - "6379:6379"
 
   questdb:
-    image: 'questdb/questdb:latest'
+    image: "questdb/questdb:latest"
     volumes:
       - questdb_data:/root/.questdb/db
     ports:
-      - '9000:9000'
-      - '8812:8812'
-
+      - "9000:9000"
+      - "8812:8812"

@@ -7,11 +7,11 @@ class Settings(BaseSettings):
     """
 
     debug: bool = False
-    celery_broker: str = ""
+    celery_broker: str = "redis://redis:6379/0"
     frequency: int = 1  # default monitoring frequency
     database_url: str = "postgresql://admin:quest@questdb:8812/qdb"
     database_pool_size: int = 3
-    website_url: str
+    website_url: str = "http://epa.culturalcenter.gov.ph/accounts/login"
 
     class Config:
         """
